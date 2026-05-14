@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "516523072594",
+    "project_id": "fadi-app-bb8da",
+    "storage_bucket": "fadi-app-bb8da.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516523072594:android:881b0794bc3dab58c9538b",
+        "android_client_info": {
+          "package_name": "com.example.fadi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuUOEL4pZiH35ATyM4V-dA29_Y2NNU8LU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
