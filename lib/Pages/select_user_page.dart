@@ -70,50 +70,52 @@ class _SelectUserPageState extends State<SelectUserPage> {
       appBar: AppBar(title: const Text('Select User')),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
-          : Column(
-              children: [
-                Expanded(
-                  child: users.isEmpty
-                      ? const Center(child: Text('No users available'))
-                      : ListView.builder(
-                          itemCount: users.length,
-                          itemBuilder: (context, index) {
-                            final user = users[index];
-                            final isSelected =
-                                selectedUser?['uid'] == user['uid'];
+          : SafeArea(
+              child: Column(
+                children: [
+                  Expanded(
+                    child: users.isEmpty
+                        ? const Center(child: Text('No users available'))
+                        : ListView.builder(
+                            itemCount: users.length,
+                            itemBuilder: (context, index) {
+                              final user = users[index];
+                              final isSelected =
+                                  selectedUser?['uid'] == user['uid'];
 
-                            return ListTile(
-                              leading: Icon(
-                                isSelected
-                                    ? Icons.check_circle
-                                    : Icons.person_outline,
-                              ),
-                              title: Text(user['name'] ?? ''),
-                              subtitle: Text(user['email'] ?? ''),
-                              onTap: () {
-                                setState(() {
-                                  selectedUser = user;
-                                });
-                              },
-                            );
-                          },
-                        ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: selectedUser == null || isBooking
-                          ? null
-                          : createBooking,
-                      child: isBooking
-                          ? const CircularProgressIndicator()
-                          : const Text('Book'),
+                              return ListTile(
+                                leading: Icon(
+                                  isSelected
+                                      ? Icons.check_circle
+                                      : Icons.person_outline,
+                                ),
+                                title: Text(user['name'] ?? ''),
+                                subtitle: Text(user['email'] ?? ''),
+                                onTap: () {
+                                  setState(() {
+                                    selectedUser = user;
+                                  });
+                                },
+                              );
+                            },
+                          ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: selectedUser == null || isBooking
+                            ? null
+                            : createBooking,
+                        child: isBooking
+                            ? const CircularProgressIndicator()
+                            : const Text('Book'),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
     );
   }
